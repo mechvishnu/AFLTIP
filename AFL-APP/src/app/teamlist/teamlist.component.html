@@ -8,7 +8,7 @@
   <div class = "item" *ngFor = "let team of teams" >
      <a [routerLink] ="['/teams',team['id'], team['name'] ]" ><img  class= "itemImage" src="https://squiggle.com.au{{team['logo']}}" alt="Card image cap"> </a> 
    <!-- <img  class= "itemImage" src="https://squiggle.com.au{{team['logo']}}" alt="Card image cap">  -->
-    <a class="textItem" href='#'>{{team['name']}}</a>
+    <a class="textItem" [routerLink] ="['/teams',team['id'], team['name'] ]">{{team['name']}}</a>
 
   </div>
    
