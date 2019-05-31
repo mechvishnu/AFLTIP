@@ -1,0 +1,19 @@
+<!-- <div *ngFor = "let ladder of ladderdata">
+  <p>{{ladder['team']}}</p>
+  <p>{{ladder['percentage']}}</p>
+  <p>{{ladder['rank']}}</p>
+  <p>{{ladder['source']}}</p>
+</div> -->
+
+<table >
+    <tr>
+      <th>TeamName</th>
+      <th>Percentage</th> 
+      <th>Rank</th>
+    </tr>
+    <tr *ngFor= "let ladder of ladderdata1" >
+      <td>{{ladder.team}}</td>
+      <td>{{ladder.percentage}}</td> 
+      <td>{{ladder.rank}}</td>
+    </tr>
+  </table>

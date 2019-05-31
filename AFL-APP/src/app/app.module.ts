@@ -9,11 +9,13 @@ import { TeamlistComponent } from './teamlist/teamlist.component';
 import { Routes, RouterModule } from '@angular/router';
 import { TeamsComponent } from './teams/teams.component';
 import { TeamComponent } from './teams/team/team.component';
+import { LadderComponent } from './ladder/ladder.component';
 
 
 const appRoutes :Routes = [
   {path:'' , component: TeamlistComponent},
   {path:'teams/:id/:name' , component:TeamComponent},
+  {path:'ladder',component:LadderComponent}
 ]
 @NgModule({
   declarations: [
@@ -21,7 +23,8 @@ const appRoutes :Routes = [
     TeamlistComponent,
     NavbarComponent,
     TeamsComponent,
-    TeamComponent
+    TeamComponent,
+    LadderComponent
   ],
   imports: [
     BrowserModule,
