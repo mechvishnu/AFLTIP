@@ -1,35 +1,19 @@
-<!-- <ul>
-  <li *ngFor = "let team of teams">
-      {{team['id']}}
-      {{team['name']}}
-      <img src="https://squiggle.com.au{{team['logo']}}"">
-  </li>
-</ul> -->
 
+<html>
+<head>
+</head>
+<body>
 
-
-     
-
-  <div class="container-fluid content-row">
-      <div class="row card-group">
-<div *ngFor = "let team of teams" class="col-2" >
-        <div class = "card h-100"  >
-            <img class="card-img-top" src="https://squiggle.com.au{{team['logo']}}" alt="Card image cap">
-            <div class="card-body">
-              <p class="card-text-centre ">{{team['name']}}</p>
-            </div>
-        </div>
-        </div>
-        
-     
+<div class="container">
+  <div class = "item" *ngFor = "let team of teams" >
+     <a [routerLink] ="['/teams',team['id'], team['name'] ]" ><img  class= "itemImage" src="https://squiggle.com.au{{team['logo']}}" alt="Card image cap"> </a> 
+   <!-- <img  class= "itemImage" src="https://squiggle.com.au{{team['logo']}}" alt="Card image cap">  -->
+    <a class="textItem" href='#'>{{team['name']}}</a>
 
   </div>
-</div> 
+   
+</div>
 
-<!-- <div class="row card-group">
-    <div class="col-4"  *ngFor="let team of teams">
-        <div class="card">
-            <a href='#'>{{team['name']}}</a>
-        </div>
-    </div>
-</div> -->
+</body>
+</html>
+

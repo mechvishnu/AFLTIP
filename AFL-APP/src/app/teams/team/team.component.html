@@ -1,0 +1,82 @@
+
+<!-- <div class = "teamcontainer"> -->
+ 
+  <div class="button-1">
+  <button class ="btn btn-primary" (click) ="upcomingMatch()">{{buttonName}}</button>
+  </div>
+
+  <div *ngIf="completed">
+
+    <div class ="heading">
+      <h3>Matches Played by {{teamName}} this Season 2019</h3>
+    </div>
+    <div class= "result-heading">
+        <p> Date</p>
+        <p>Round</p>
+        <p>FavoriteTeam</p>
+        <p>score</p>
+        <p>Opponent</p>
+        <p>score</p>
+        <p>Winner</p>
+      </div>
+  <div *ngFor = "let game of games">
+   <ul  class="first-item" *ngIf ="(game['ateam']) ==  teamName && game['ascore'] !='0'"> 
+    <li>{{game['date'] | date}}</li>
+    <li>{{game['round']}}</li>
+    <li> <img src="{{getLogo(game['ateam'])}}" alt="Card image cap"><p>{{game['ateam']}}</p> </li>
+    <li>{{game['ascore']}}</li>
+    <li> <img src="{{getLogo(game['hteam'])}}" alt="Card image cap"><p>{{game['hteam']}}</p> </li>
+    <li>{{game['hscore']}}</li>
+    <li>{{game['winner']}}</li>
+</ul>
+  <ul class="second-item" *ngIf ="(game['hteam']) ==  teamName && game['ascore'] != '0'"> 
+    <li>{{game['date'] | date}}</li>
+    <li>{{game['round']}}</li>
+    <li> <img src="{{getLogo(game['hteam'])}}" alt="Card image cap"><p> {{game['hteam']}}</p> </li>
+    <li>{{game['ascore']}}</li>
+    <li> <img src="{{getLogo(game['ateam'])}}" alt="Card image cap"><p> {{game['ateam']}}</p> </li>
+    <li>{{game['ascore']}}</li>
+    <li>{{game['winner']}}</li>
+  </ul> 
+</div>
+</div>
+<!-- </div> -->
+
+
+<div *ngIf="!completed">
+    <div class ="heading">
+        <h3>Upcoming Matches of {{teamName}} this Season 2019</h3>
+      </div>
+
+      
+        <div class= "result-heading">
+          <p> Date</p>
+          <p>Round</p>
+          <p>FavoriteTeam</p>
+          <p>score</p>
+          <p>Opponent</p>
+          <p>score</p>
+          <p>Venue</p>
+        </div>
+
+    <div *ngFor = "let game of games">
+     <ul  class="first-item" *ngIf ="(game['ateam']) ==  teamName && game['ascore'] =='0'"> 
+      <li>{{game['date'] | date}}</li>
+      <li>{{game['round']}}</li>
+      <li> <img src="{{getLogo(game['ateam'])}}" alt="Card image cap"><p>{{game['ateam']}}</p> </li>
+      <li>{{game['ascore']}}</li>
+      <li> <img src="{{getLogo(game['hteam'])}}" alt="Card image cap"><p>{{game['hteam']}}</p> </li>
+      <li>{{game['hscore']}}</li>
+      <li>{{game['venue']}}</li>
+  </ul>
+    <ul class="second-item" *ngIf ="(game['hteam']) ==  teamName && game['ascore'] == '0'"> 
+      <li>{{game['date'] | date}}</li>
+      <li>{{game['round']}}</li>
+      <li> <img src="{{getLogo(game['hteam'])}}" alt="Card image cap"><p> {{game['hteam']}}</p> </li>
+      <li>{{game['ascore']}}</li>
+      <li> <img src="{{getLogo(game['ateam'])}}" alt="Card image cap"><p> {{game['ateam']}}</p> </li>
+      <li>{{game['ascore']}}</li>
+      <li>{{game['venue']}}</li>
+    </ul> 
+  </div>
+  </div>
