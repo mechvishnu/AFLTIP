@@ -4,11 +4,30 @@
 </head>
 <body>
 
+<<<<<<< HEAD
 <div class="container">
   <div class = "item" *ngFor = "let team of teams" >
      <a [routerLink] ="['/teams',team['id'], team['name'] ]" ><img  class= "itemImage" src="https://squiggle.com.au{{team['logo']}}" alt="Card image cap"> </a> 
    <!-- <img  class= "itemImage" src="https://squiggle.com.au{{team['logo']}}" alt="Card image cap">  -->
     <a class="textItem" href='#'>{{team['name']}}</a>
+=======
+
+     
+
+  <div class="container-fluid content-row">
+      <div class="row card-group">
+<div *ngFor = "let team of teams" class="col-2" >
+        <div class = "card h-100"  >
+            <img class="card-img-top" src="https://squiggle.com.au{{team['logo']}}" alt="Card image cap">
+            <div class="card-body">
+              <p class="card-text-centre ">{{team['name']}}</p>
+              <p>asd as dsf ajfgsj</p>
+            </div>
+        </div>
+        </div>
+        
+     
+>>>>>>> f696d27ae44ce57f692af30dd72f62e9c45e5943
 
   </div>
    
