@@ -10,73 +10,60 @@
     <div class ="heading">
       <h3>Matches Played by {{teamName}} this Season 2019</h3>
     </div>
-    <div class= "result-heading">
-        <p> Date</p>
-        <p>Round</p>
-        <p>FavoriteTeam</p>
-        <p>score</p>
-        <p>Opponent</p>
-        <p>score</p>
-        <p>Winner</p>
-      </div>
+
+  <div class="first-item">
   <div *ngFor = "let game of games">
-   <ul  class="first-item" *ngIf ="(game['ateam']) ==  teamName && game['ascore'] !='0'"> 
-    <li>{{game['date'] | date}}</li>
-    <li>{{game['round']}}</li>
-    <li> <img src="{{getLogo(game['ateam'])}}" alt="Card image cap"><p>{{game['ateam']}}</p> </li>
-    <li>{{game['ascore']}}</li>
-    <li> <img src="{{getLogo(game['hteam'])}}" alt="Card image cap"><p>{{game['hteam']}}</p> </li>
-    <li>{{game['hscore']}}</li>
-    <li>{{game['winner']}}</li>
-</ul>
-  <ul class="second-item" *ngIf ="(game['hteam']) ==  teamName && game['ascore'] != '0'"> 
-    <li>{{game['date'] | date}}</li>
-    <li>{{game['round']}}</li>
-    <li> <img src="{{getLogo(game['hteam'])}}" alt="Card image cap"><p> {{game['hteam']}}</p> </li>
-    <li>{{game['ascore']}}</li>
-    <li> <img src="{{getLogo(game['ateam'])}}" alt="Card image cap"><p> {{game['ateam']}}</p> </li>
-    <li>{{game['ascore']}}</li>
-    <li>{{game['winner']}}</li>
-  </ul> 
-</div>
-</div>
-<!-- </div> -->
-
-
+   <div  class = "box border border-primary" *ngIf ="(game['ateam']) ==  teamName && game['ascore'] !='0'"> 
+     <p> <span class="round"> Round:{{game['round']}} </span> </p>
+     <p>{{game['date'] | date}}</p>   
+       <p> <img src="{{getLogo(game['ateam'])}}" alt="Card image cap"> ({{game['ascore']}})
+        <img src="{{getLogo(game['hteam'])}}" alt="Card image cap"> ({{game['hscore']}})
+       </p>
+        <p>{{game['ateam']}} vs {{game['hteam']}}
+        </p>
+        <p> Winner: {{game['winner']}}</p>
+    </div>
+    <div class = "box border border-primary" *ngIf ="(game['hteam']) ==  teamName && game['ascore'] !='0'"> 
+        <p> <span class="round"> Round:{{game['round']}} </span> </p>
+        <p>{{game['date'] | date}}</p>   
+          <p> <img src="{{getLogo(game['hteam'])}}" alt="Card image cap"> ({{game['hscore']}})<img src="{{getLogo(game['ateam'])}}" alt="Card image cap"> ({{game['ascore']}})
+          </p>
+           <p>{{game['hteam']}} {{game['ateam']}}
+           </p>
+           <p> Winner: {{game['winner']}}</p>
+       </div>
+    </div>
+    </div>
+       
+  </div>
+    
 <div *ngIf="!completed">
-    <div class ="heading">
-        <h3>Upcoming Matches of {{teamName}} this Season 2019</h3>
-      </div>
+<div class ="heading">
+    <h3>Upcoming Matches by {{teamName}} this Season 2019</h3>
+  </div>
 
-      
-        <div class= "result-heading">
-          <p> Date</p>
-          <p>Round</p>
-          <p>FavoriteTeam</p>
-          <p>score</p>
-          <p>Opponent</p>
-          <p>score</p>
-          <p>Venue</p>
-        </div>
-
-    <div *ngFor = "let game of games">
-     <ul  class="first-item" *ngIf ="(game['ateam']) ==  teamName && game['ascore'] =='0'"> 
-      <li>{{game['date'] | date}}</li>
-      <li>{{game['round']}}</li>
-      <li> <img src="{{getLogo(game['ateam'])}}" alt="Card image cap"><p>{{game['ateam']}}</p> </li>
-      <li>{{game['ascore']}}</li>
-      <li> <img src="{{getLogo(game['hteam'])}}" alt="Card image cap"><p>{{game['hteam']}}</p> </li>
-      <li>{{game['hscore']}}</li>
-      <li>{{game['venue']}}</li>
-  </ul>
-    <ul class="second-item" *ngIf ="(game['hteam']) ==  teamName && game['ascore'] == '0'"> 
-      <li>{{game['date'] | date}}</li>
-      <li>{{game['round']}}</li>
-      <li> <img src="{{getLogo(game['hteam'])}}" alt="Card image cap"><p> {{game['hteam']}}</p> </li>
-      <li>{{game['ascore']}}</li>
-      <li> <img src="{{getLogo(game['ateam'])}}" alt="Card image cap"><p> {{game['ateam']}}</p> </li>
-      <li>{{game['ascore']}}</li>
-      <li>{{game['venue']}}</li>
-    </ul> 
+<div class="first-item">
+<div *ngFor = "let game of games">
+ <div  class = "box border border-primary" *ngIf ="(game['ateam']) ==  teamName && game['ascore'] =='0'"> 
+   <p> <span class="round"> Round:{{game['round']}} </span> </p>
+   <p>{{game['date'] | date}}</p>   
+     <p> <img src="{{getLogo(game['ateam'])}}" alt="Card image cap"> ({{game['ascore']}})
+      <img src="{{getLogo(game['hteam'])}}" alt="Card image cap"> ({{game['hscore']}})
+     </p>
+      <p>{{game['ateam']}} vs {{game['hteam']}}
+      </p>
+      <p> Venue: {{game['venue']}}</p>
+  </div>
+  <div class = "box border border-primary" *ngIf ="(game['hteam']) ==  teamName && game['ascore'] =='0'"> 
+      <p> <span class="round"> Round:{{game['round']}} </span> </p>
+      <p>{{game['date'] | date}}</p>   
+        <p> <img src="{{getLogo(game['hteam'])}}" alt="Card image cap"> ({{game['hscore']}})<img src="{{getLogo(game['ateam'])}}" alt="Card image cap"> ({{game['ascore']}})
+        </p>
+         <p>{{game['hteam']}} {{game['ateam']}}
+         </p>
+         <p> Venue: {{game['venue']}}</p>
+     </div>
   </div>
   </div>
+
+</div>
