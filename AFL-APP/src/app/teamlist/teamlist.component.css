@@ -8,7 +8,7 @@ body{
     width :auto;
     /* margin-left: 40px; */
     margin-top:40px; 
-     background-color: #ddd; 
+     /* background-color: #ddd;  */
     display: grid;
     grid-template-columns: repeat(6,1fr);
     grid-template-rows: repeat(3,1fr);
