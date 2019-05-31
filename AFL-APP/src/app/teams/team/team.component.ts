@@ -15,7 +15,9 @@ export class TeamComponent implements OnInit {
    games :any = [];
    teams :any = [];
    completed = true;
-   buttonName = "Upcoming Matches";
+   buttonColor ="btn btn-success";
+   but = "testing";
+   buttonName = "Upcoming Games";
   constructor(private route :ActivatedRoute, private gameService : GamedataService , 
     private teamService:TeamdataService ) { }
 
@@ -67,14 +69,16 @@ export class TeamComponent implements OnInit {
 
   upcomingMatch()
   {
-    if (this.buttonName== "Upcoming Matches")
+    if (this.buttonName== "Upcoming Games")
     {
     this.completed =false;
-    this.buttonName='Completed Matches';
+    this.buttonName='Completed Games';
+    this.buttonColor = "btn btn-primary"
     }
     else{
       this.completed = true;
-      this.buttonName = "Upcoming Matches";
+      this.buttonName = "Upcoming Games";
+      this.buttonColor = "btn btn-success";
     }
   }
 
