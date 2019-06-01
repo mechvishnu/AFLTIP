@@ -10,6 +10,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { TeamsComponent } from './teams/teams.component';
 import { TeamComponent } from './teams/team/team.component';
 import { LadderComponent } from './ladder/ladder.component';
+import { WinningPredictionComponent } from './winning-prediction/winning-prediction.component';
 
 
 const appRoutes :Routes = [
@@ -24,7 +25,8 @@ const appRoutes :Routes = [
     NavbarComponent,
     TeamsComponent,
     TeamComponent,
-    LadderComponent
+    LadderComponent,
+    WinningPredictionComponent
   ],
   imports: [
     BrowserModule,
