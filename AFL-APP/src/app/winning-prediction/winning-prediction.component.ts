@@ -12,13 +12,19 @@ import { TipsDataService } from 'src/app/tips-data.service';
 })
 export class WinningPredictionComponent implements OnInit {
 
-  fav : string = 'Hawthorn';
+  fav : string;
   games : any = [];
   tips : any = [];
   filterobj : any = [];
   futureGameDate: any = [];
   count : number = 0;
   conf : number = 0;
+  value: any;
+
+  setFavTeam(val){
+    this.fav = val;
+    this.ngOnInit();
+  }
 
   constructor(private gameService : GamedataService, private tipsService : TipsDataService, private http : HttpClient) { }
 
@@ -63,14 +69,14 @@ export class WinningPredictionComponent implements OnInit {
             }
           
             console.log('exits if');
-            console.log((this.conf/(this.count+1)).toFixed( 2 ));      
-        }
+            this.value = ((this.conf/(this.count+1)).toFixed( 2 ));      
+            console.log(this.value);
+          }
         )
       })
   }
 
-  getProbability(){
-    return ((this.conf/(this.count+1)).toFixed( 2 ));      
-
-  }
+  // getProbability() {
+  //   this.value = ((this.conf/(this.count+1)).toFixed( 2 ) ); 
+  // }
 }
