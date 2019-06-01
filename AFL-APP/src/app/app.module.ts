@@ -11,6 +11,7 @@ import { TeamsComponent } from './teams/teams.component';
 import { TeamComponent } from './teams/team/team.component';
 import { LadderComponent } from './ladder/ladder.component';
 import { WinningPredictionComponent } from './winning-prediction/winning-prediction.component';
+import { GeoLocationComponent } from './geo-location/geo-location.component';
 
 
 const appRoutes :Routes = [
@@ -26,7 +27,8 @@ const appRoutes :Routes = [
     TeamsComponent,
     TeamComponent,
     LadderComponent,
-    WinningPredictionComponent
+    WinningPredictionComponent,
+    GeoLocationComponent
   ],
   imports: [
     BrowserModule,
