@@ -12,6 +12,7 @@ import { TeamComponent } from './teams/team/team.component';
 import { LadderComponent } from './ladder/ladder.component';
 import { WinningPredictionComponent } from './winning-prediction/winning-prediction.component';
 import { GeoLocationComponent } from './geo-location/geo-location.component';
+import { AgmCoreModule } from '@agm/core';
 
 
 const appRoutes :Routes = [
@@ -34,7 +35,11 @@ const appRoutes :Routes = [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyC-ezjOuNAoceyX1r2kqrk60Nrh3aXCk5k',
+      libraries: ["places", "geometry"]
+    }),
   ],
   providers: [],
   bootstrap: [AppComponent]

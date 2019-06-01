@@ -1,0 +1,7 @@
+<p>
+  geo-location works!
+</p>
+<agm-map [latitude]="latitude" [longitude]="longitude" [zoom]="zoom" (mapReady)="mapReady($event)">
+  <agm-marker [latitude]="latitude" [longitude]="longitude"></agm-marker>
+</agm-map>
+<input value="Find Stadiums" autocorrect="off" autocapitalize="off" type="button" class="form-control" size="100" (click)="findStadium()">
