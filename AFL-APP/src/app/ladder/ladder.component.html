@@ -1,19 +1,29 @@
 <!-- <div *ngFor = "let ladder of ladderdata">
-  <p>{{ladder['team']}}</p>
-  <p>{{ladder['percentage']}}</p>
-  <p>{{ladder['rank']}}</p>
-  <p>{{ladder['source']}}</p>
+<p>{{ladder['team']}}</p>
+<p>{{ladder['percentage']}}</p>
+<p>{{ladder['rank']}}</p>
+<p>{{ladder['source']}}</p>
 </div> -->
 
-<table >
+
+<table class="table">
+  <thead class="thead-dark">
     <tr>
       <th>TeamName</th>
-      <th>Percentage</th> 
+      <th>Percentage</th>
       <th>Rank</th>
     </tr>
-    <tr *ngFor= "let ladder of ladderdata1" >
-      <td>{{ladder.team}}</td>
-      <td>{{ladder.percentage}}</td> 
-      <td>{{ladder.rank}}</td>
-    </tr>
-  </table>
+  </thead>
+  <tbody>
+    <ng-container *ngFor= "let ladder of ladderdata; let i=index" >
+      <!-- <p>index {{addidx()}}</p> -->
+      <ng-container *ngFor = "let ladder2 of ladderdata">
+        <tr *ngIf = "ladder2.rank == i+1">
+          <td>{{ladder2.team}}  </td>
+          <td>{{ladder2.percentage}} </td>
+          <td>{{ladder2.rank}} </td>
+        </tr>
+      </ng-container>
+    </ng-container>
+  </tbody>
+</table>

@@ -18,14 +18,19 @@ import { HomeComponent } from './home/home.component';
 import { FooterComponent } from './footer/footer.component';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { HeroComponent } from './hero/hero.component';
+import { TeamMatchesComponent } from './teams/team-matches/team-matches.component';
+import { MatchesComponent } from './matches/matches.component';
 
 
 
 const appRoutes :Routes = [
   {path:'' , component: HomeComponent},
-  {path:'teams/:id/:name' , component:TeamComponent},
+  {path:'teams/:id/:name' , component:TeamMatchesComponent},
   {path:'ladder',component:LadderComponent},
-  {path:'teams',component:TeamsComponent}]
+  {path:'teams',component:TeamsComponent},
+  {path:'win',component:WinningPredictionComponent},
+  {path:'matches',component:MatchesComponent},
+  {path:'stadiums',component:GeoLocationComponent}]
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,7 +44,9 @@ const appRoutes :Routes = [
     NewsComponent,
     HomeComponent,
     FooterComponent,
-    HeroComponent
+    HeroComponent,
+    TeamMatchesComponent,
+    MatchesComponent
   ],
   imports: [
     BrowserModule,

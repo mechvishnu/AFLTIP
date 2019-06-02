@@ -12,11 +12,16 @@ a:hover
 }
 .nav-container
 {
-    
+  padding-left: 20px;
+    display:flex;
     justify-content: space-evenly;
-    padding-top:20px;
+    padding:20px 20px;
+    background: #3e3e3e;  /* fallback for old browsers */
+  }
+.nav-container>img
+{
+  max-height: 50px;
 
-    background: #3e3e3e;
 }
 .nav-container>ul>li>a
 {

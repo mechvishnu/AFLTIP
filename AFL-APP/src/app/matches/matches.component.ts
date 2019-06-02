@@ -2,27 +2,28 @@ import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import { GamedataService } from 'src/app/gamedata.service';
 import { TeamdataService } from 'src/app/teamdata.service';
-import { TeamsComponent } from '../teams.component';
+import { TeamsComponent } from './teams.component';
+
 
 @Component({
-  selector: 'app-team',
-  templateUrl: './team.component.html',
-  styleUrls: ['./team.component.css']
+  selector: 'app-matches',
+  templateUrl: './matches.component.html',
+  styleUrls: ['./matches.component.css']
 })
-export class TeamComponent implements OnInit {
-   teamId:number;
-   teamName:String;
-   games :any = [];
-   teams :any = [];
-   completed = true;
-   buttonColor ="btn btn-success";
-   but = "testing";
-   buttonName = "Upcoming Games";
+export class MatchesComponent implements OnInit {
+  teamId:number;
+  teamName:String;
+  games :any = [];
+  teamsM :any = [];
+  completed = false;
+  buttonColor ="btn btn-success";
+  but = "testing";
+  buttonName = "Upcoming Games";
   constructor(private route :ActivatedRoute, private gameService : GamedataService ,
-    private teamService:TeamdataService ) { }
-
+    private teamServiceM:TeamdataService ) { }
 
   ngOnInit() {
+
     this.teamId= this.route.snapshot.params['id'];
     this.teamName = this.route.snapshot.params['name'];
     this.gameService.getgames().subscribe( response =>
@@ -32,6 +33,15 @@ export class TeamComponent implements OnInit {
         this.games[i] = response['games'][i];
       }
     })
+
+    this.teamServiceM.getTeam().subscribe(response => {
+      for (var i=0 ; i < response['teams'].length ; i++)
+      {
+        this.teamsM[i] = response['teams'][i];
+      }
+    })
+
+
   }
 
   getLogo(tn:String)
@@ -56,16 +66,14 @@ export class TeamComponent implements OnInit {
 
   upcomingMatch()
   {
-    if (this.buttonName== "Upcoming Games")
-    {
-    this.completed =false;
-    this.buttonName='Completed Games';
-    this.buttonColor = "btn btn-primary"
-    }
-    else{
-      this.completed = true;
-      this.buttonName = "Upcoming Games";
-      this.buttonColor = "btn btn-success";
-    }
+    this.completed = !this.completed;
+
   }
+  selectTeam(deviceValue)
+  {
+    console.log(deviceValue);
+    this.teamName = deviceValue;
+    //this.router.navigate(['../../win']);
+  }
+
 }

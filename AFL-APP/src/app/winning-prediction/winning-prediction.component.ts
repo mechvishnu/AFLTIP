@@ -36,7 +36,7 @@ export class WinningPredictionComponent implements OnInit {
         for (var i=0; i < response['games'].length ; i++)
         {
           this.games[i] = response['games'][i];
-      
+
           if (this.games[i].ateam === this.fav || this.games[i].hteam === this.fav && this.games[i].complete === 0)
           {
             this.filterobj[filterCount] = this.games[i];
@@ -44,11 +44,7 @@ export class WinningPredictionComponent implements OnInit {
             filterCount++;
           }
         }
-        //console.log(this.games);
         
-        //console.log(this.filterobj);
-        //this.futureGameDate = this.filterobj[0].date;
-        //console.log(this.futureGameDate);
         this.tipsService.gettips().subscribe(
           response =>
           {
@@ -57,26 +53,27 @@ export class WinningPredictionComponent implements OnInit {
               this.tips[i] = response['tips'][i];
 
               for (var j = 0; j < filterCount; j++)
-{              if (this.tips[i].date === this.futureGameDate[j])
               {
-                console.log(this.tips[i].confidence)
- 
-                console.log(this.conf += parseFloat(this.tips[i].hconfidence));
-                this.count++;
+                if (this.tips[i].date === this.futureGameDate[j])
+                {
+                  //console.log(this.tips[i].confidence)
 
-              }
+                  this.conf += parseFloat(this.tips[i].hconfidence);
+                  this.count++;
+
+                }
               }
             }
-          
-            console.log('exits if');
-            this.value = ((this.conf/(this.count+1)).toFixed( 2 ));      
+
+
+            this.value = ((this.conf/(this.count+1)).toFixed( 2 ));
             console.log(this.value);
           }
         )
       })
-  }
+    }
 
-  // getProbability() {
-  //   this.value = ((this.conf/(this.count+1)).toFixed( 2 ) ); 
-  // }
-}
+    // getProbability() {
+    //   this.value = ((this.conf/(this.count+1)).toFixed( 2 ) );
+    // }
+  }

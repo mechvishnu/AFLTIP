@@ -1,6 +1,11 @@
-<div class="row" style="width:100%">
-  <div class="container">
-    <br>
-  <h1 class="text-center">All Teams</h1>
+<br>
+<h1 class="text-center">All Teams</h1>
+<p class="text-center">
+  choose any team to see the matches
+</p>
+<div class="container">
+  <div class = "item" *ngFor = "let team of teams" >
+     <a [routerLink] ="['/teams',team['id'], team['name'] ]" ><img  class= "itemImage" src="https://squiggle.com.au{{team['logo']}}" alt="Card image cap"> </a>
+    <a class="textItem" [routerLink] ="['/teams',team['id'], team['name'] ]">{{team['name']}}</a>
   </div>
 </div>

@@ -1,0 +1,120 @@
+<div class="filter-row">
+  <!-- <button class ="{{buttonColor}}" (click) ="upcomingMatch()">{{buttonName}}</button> -->
+
+<br>
+  <select class="select-filter" (change)="upcomingMatch()">
+    <option value="{{buttonName}}">Select Matches</option>
+    <option value="{{buttonName}}">Upcoming Macthes</option>
+    <option value="{{buttonName}}">Completed Macthes</option>
+  </select>
+  
+
+</div>
+
+<div class="" style="background: #e5e5e5">
+  <div class="row match-list">
+    <div *ngIf="completed">
+      <div class="col-lg-6 match-card" *ngFor = "let game of games" style="float: left;">
+        <!-- completed matches -->
+        <div class="">
+          <div class="row-match" *ngIf ="game['ascore'] !='0'">
+            <p class="winner text-center">Round: {{game['round']}} </p>
+            <p class="winner text-center">{{game['date'] | date}}</p>
+            <div class="left">
+              <img src="{{getLogo(game['ateam'])}}" class="home-team-logo">
+              <p class="text-center">{{game['ateam']}}</p>
+            </div>
+            <div class="lscore">
+              <h1 class="text-center">{{game['ascore']}}</h1>
+            </div>
+            <div class="vs-grid">
+              <h4 class="vs text-center">-</h4>
+            </div>
+            <div class="rscore">
+              <h1 class="text-center">{{game['hscore']}}</h1>
+            </div>
+            <div class="right">
+              <img src="{{getLogo(game['hteam'])}}" class="away-team-logo">
+              <p class="text-center">{{game['hteam']}}</p>
+            </div>
+            <p class="winner text-center">Winner: {{game['winner']}} </p>
+            <p class="winner text-center">Venue: {{game['venue']}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div *ngIf="!completed">
+      <div class="col-lg-6 match-card" *ngFor = "let game of games" style="float: left;">
+        <!-- upcoming matches -->
+        <div class="">
+          <div class="row-match" *ngIf ="game['ascore'] =='0'">
+            <p class="winner text-center">Round: {{game['round']}} </p>
+            <p class="winner text-center">{{game['date'] | date}}</p>
+            <div class="left">
+              <img src="{{getLogo(game['ateam'])}}" class="home-team-logo">
+              <p class="text-center">{{game['ateam']}}</p>
+            </div>
+            <div class="lscore">
+              <h1 class="text-center">{{game['ascore']}}</h1>
+            </div>
+            <div class="vs-grid">
+              <h4 class="vs text-center">-</h4>
+            </div>
+            <div class="rscore">
+              <h1 class="text-center">{{game['hscore']}}</h1>
+            </div>
+            <div class="right">
+              <img src="{{getLogo(game['hteam'])}}" class="away-team-logo">
+              <p class="text-center">{{game['hteam']}}</p>
+            </div>
+            <p class="winner text-center">Winner: Not Decided </p>
+            <p class="winner text-center">Venue: {{game['venue']}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+    <!-- <div *ngIf="!completed">
+    <div class="col-lg-6" *ngFor = "let game of games">
+    <!-- completed matches
+    <div class="">
+    <div class="row-match" *ngIf ="game['ascore'] =='0'">
+    <p class="winner text-center">Round: {{game['round']}} </p>
+    <p class="winner text-center">{{game['date'] | date}}</p>
+    <div class="left">
+    <img src="{{getLogo(game['ateam'])}}" class="home-team-logo">
+    <p class="text-center">{{game['ateam']}}</p>
+  </div>
+  <div class="lscore">
+  <h1 class="text-center">{{game['ascore']}}</h1>
+</div>
+<div class="vs-grid">
+<h4 class="vs text-center">-</h4>
+</div>
+<div class="rscore">
+<h1 class="text-center">{{game['hscore']}}</h1>
+</div>
+<div class="right">
+<img src="{{getLogo(game['hteam'])}}" class="away-team-logo">
+<p class="text-center">{{game['hteam']}}</p>
+</div>
+<p class="winner text-center">Winner: {{game['winner']}} </p>
+<p class="winner text-center">Venue: {{game['venue']}}</p>
+</div>
+</div>
+</div>
+</div> -->
+
+
+
+
+
+</div>
+<!-- <div class="col-lg-6">
+<app-ladder></app-ladder>
+</div> -->
+</div>

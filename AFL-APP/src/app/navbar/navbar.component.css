@@ -12,13 +12,18 @@ a:hover
 }
 .nav-container
 {
-   
+  padding-left: 20px;
     display:flex;
     justify-content: space-evenly;
-    padding-top:20px;
+    padding:20px 20px;
     background: #6a3093;  /* fallback for old browsers */
     background: -webkit-linear-gradient(to left, #a044ff, #6a3093);  /* Chrome 10-25, Safari 5.1-6 */
     background: linear-gradient(to left, #a044ff, #6a3093);
+}
+.nav-container>img
+{
+  max-height: 50px;
+
 }
 .nav-container>ul>li>a
 {

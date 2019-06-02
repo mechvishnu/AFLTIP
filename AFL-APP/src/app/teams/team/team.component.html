@@ -1,6 +1,5 @@
 
-<!-- <div class = "teamcontainer"> -->
- 
+
   <div class="button-1">
   <button class ="{{buttonColor}}" (click) ="upcomingMatch()">{{buttonName}}</button>
   </div>
@@ -13,9 +12,9 @@
 
   <div class="first-item">
   <div *ngFor = "let game of games">
-   <div  class = "box border border-primary" *ngIf ="(game['ateam']) ==  teamName && game['ascore'] !='0'"> 
+   <div  class = "box border border-primary" *ngIf ="(game['ateam']) ==  teamName && game['ascore'] !='0'">
      <p> <span class="round"> Round:{{game['round']}} </span> </p>
-     <p>{{game['date'] | date}}</p>   
+     <p>{{game['date'] | date}}</p>
        <p> <img src="{{getLogo(game['ateam'])}}" alt="Card image cap"> ({{game['ascore']}})
         <img src="{{getLogo(game['hteam'])}}" alt="Card image cap"> ({{game['hscore']}})
        </p>
@@ -23,9 +22,9 @@
         </p>
         <p> Winner: {{game['winner']}}</p>
     </div>
-    <div class = "box border border-primary" *ngIf ="(game['hteam']) ==  teamName && game['ascore'] !='0'"> 
+    <div class = "box border border-primary" *ngIf ="(game['hteam']) ==  teamName && game['ascore'] !='0'">
         <p> <span class="round"> Round:{{game['round']}} </span> </p>
-        <p>{{game['date'] | date}}</p>   
+        <p>{{game['date'] | date}}</p>
           <p> <img src="{{getLogo(game['hteam'])}}" alt="Card image cap"> ({{game['hscore']}})<img src="{{getLogo(game['ateam'])}}" alt="Card image cap"> ({{game['ascore']}})
           </p>
            <p>{{game['hteam']}} vs {{game['ateam']}}
@@ -34,9 +33,9 @@
        </div>
     </div>
     </div>
-       
+
   </div>
-    
+
 <div *ngIf="!completed">
 <div class ="heading">
     <h3>Upcoming Matches of {{teamName}} this Season 2019</h3>
@@ -44,9 +43,9 @@
 
 <div class="first-item">
 <div *ngFor = "let game of games">
- <div  class = "box border border-primary" *ngIf ="(game['ateam']) ==  teamName && game['complete'] =='0'"> 
+ <div  class = "box border border-primary" *ngIf ="(game['ateam']) ==  teamName && game['complete'] =='0'">
    <p> <span class="round"> Round:{{game['round']}} </span> </p>
-   <p>{{game['date'] | date}}</p>   
+   <p>{{game['date'] | date}}</p>
      <p> <img src="{{getLogo(game['ateam'])}}" alt="Card image cap"> ({{game['ascore']}})
       <img src="{{getLogo(game['hteam'])}}" alt="Card image cap"> ({{game['hscore']}})
      </p>
@@ -54,9 +53,9 @@
       </p>
       <p> Venue: {{game['venue']}}</p>
   </div>
-  <div class = "box border border-primary" *ngIf ="(game['hteam']) ==  teamName && game['complete'] =='0'"> 
+  <div class = "box border border-primary" *ngIf ="(game['hteam']) ==  teamName && game['complete'] =='0'">
       <p> <span class="round"> Round:{{game['round']}} </span> </p>
-      <p>{{game['date'] | date}}</p>   
+      <p>{{game['date'] | date}}</p>
         <p> <img src="{{getLogo(game['hteam'])}}" alt="Card image cap"> ({{game['hscore']}})<img src="{{getLogo(game['ateam'])}}" alt="Card image cap"> ({{game['ascore']}})
         </p>
          <p>{{game['hteam']}} vs {{game['ateam']}}

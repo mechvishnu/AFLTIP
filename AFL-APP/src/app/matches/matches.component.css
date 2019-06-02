@@ -1,0 +1,122 @@
+.row-match
+{
+  width: 100%;
+  background: white;
+  padding: 1.5em 3em;
+  margin-bottom: 1em;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content:space-between;
+  min-height: 369px;
+}
+.row-match>div>img
+{
+  display: block;
+  margin: 0px auto;
+}
+.match-list
+{
+  padding: 1em 5em;
+}
+.vs
+{
+
+  color: grey;
+  font-size: 36px;
+}
+.left, .lscore, .vs-grid, .rscore, .right
+{
+  flex: 1 0 17%;
+}
+.winner
+{
+  flex: 1 0 100%;
+}
+
+.filter-row
+{
+  background-color: #e5e5e5;
+  padding: 1em 5em;
+}
+.filter-row>.select-filter
+{
+    background: white;
+    border: 0px;
+    padding: 1em 0.5em;
+    border-radius: 4px;
+    width: 25%;
+    color: black;
+    margin-right: 1em;
+    margin-bottom: 0.5em;
+
+}
+@media screen and (max-width: 800px){
+  .filter-row>.select-filter
+  {
+    width: 100% !important;
+  }
+}
+
+/* ends kunal */
+
+
+
+
+
+
+
+
+.button-1{
+    display:flex;
+    flex-direction: row-reverse;
+    margin-right:50px;
+    margin-top:10px;
+    margin-bottom:10px;
+
+
+
+}
+.heading{
+    display:flex;
+    border-style:solid;
+    border-color:blue;
+    background-color:rgb(243, 49, 49);
+    justify-content: center;
+    padding:10px;
+
+}
+h3{
+    color:white;
+}
+
+img{
+    width:60px;
+    height:60px;
+}
+
+.first-item{
+    margin-left:50px;
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    }
+.box{
+    /* border-style:solid;  */
+    width:15rem;
+    height:18rem;
+    text-align: center;
+    margin:20px;
+    padding-top:10px;
+    /* border-color:blue; */
+}
+.round{
+     border-radius: 100%;
+     background-color:red;
+     color:white;
+     border-color:blue;
+     border-style:solid;
+     border-width:medium;
+     font-size: 20px;
+     padding-left:0px;
+     margin:0px;
+}

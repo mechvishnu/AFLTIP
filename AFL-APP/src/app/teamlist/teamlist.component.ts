@@ -17,6 +17,7 @@ export class TeamlistComponent implements OnInit {
       for (var i=0 ; i < response['teams'].length ; i++)
       {
         this.teams[i] = response['teams'][i];
+        //console.log(this.teams[i]['name']);
       }
     })
   }
