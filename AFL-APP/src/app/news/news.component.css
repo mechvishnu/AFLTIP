@@ -1,0 +1,55 @@
+.home-news>div>div>a>img
+{
+  max-width: 100%;
+}
+.home-news
+{
+  padding: 3em 0em;
+  width: 100%;
+  background-color: #e5e5e5;
+}
+.container>div
+{
+  float: left;
+  background: white;
+  padding: 0px;
+  margin: 0px 0.4em;
+  width: 31%;
+  border-radius: 4px;
+  min-height: 450px;
+
+}
+.blog-div>h4
+{
+  margin: 1em 1em;
+}
+.blog-div>p
+{
+  margin: 1em 1.8em;
+  font-size: 15px;
+  color: grey;
+}
+.blog-div:hover
+{
+  transition: 0.5s;
+  transform: scale(1.02);
+  box-shadow: 2px 2px 15px grey;
+  transition: 0.5s;
+}
+.noMargin
+{
+  margin: 0px;
+}
+
+.noPadding
+{
+  padding: 0px;
+}
+
+@media screen and (max-width: 599px){
+  .blog-div
+  {
+    min-width: 95% !important;
+    margin: 1em 1em !important;
+  }
+}

@@ -12,13 +12,11 @@ a:hover
 }
 .nav-container
 {
-   
-    display:flex;
+    
     justify-content: space-evenly;
     padding-top:20px;
-    background: #6a3093;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to left, #a044ff, #6a3093);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to left, #a044ff, #6a3093);
+
+    background: #3e3e3e;
 }
 .nav-container>ul>li>a
 {

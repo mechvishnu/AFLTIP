@@ -1,19 +1,23 @@
 
-<html>
-<head>
-</head>
-<body>
-
+<!-- <div class="row section-teams">
 <div class="container">
-  <div class = "item" *ngFor = "let team of teams" >
-     <a [routerLink] ="['/teams',team['id'], team['name'] ]" ><img  class= "itemImage" src="https://squiggle.com.au{{team['logo']}}" alt="Card image cap"> </a> 
-   <!-- <img  class= "itemImage" src="https://squiggle.com.au{{team['logo']}}" alt="Card image cap">  -->
-    <a class="textItem" [routerLink] ="['/teams',team['id'], team['name'] ]">{{team['name']}}</a>
-
+  <div class = "item col-lg-2" *ngFor = "let team of teams" >
+     <a [routerLink] ="['/teams',team['id'], team['name'] ]" ><img title="{{team['name']}}" class= "itemImage" src="https://squiggle.com.au{{team['logo']}}" alt="Card image cap"> </a>
   </div>
-   
+</div>
 </div>
 
-</body>
-</html>
 
+-->
+<div class="row home-team noMargin">
+  <div class="container">
+    <h1 class="text-center">Choose your Fav Team</h1><br>
+    <div class="row">
+      
+      <div class="col-lg-1 col-sm-3 col-xs-1 item" *ngFor="let team of teams">
+
+         <a [routerLink] ="['/teams',team['id'], team['name'] ]" ><img title="{{team['name']}}" class= "img-responsive itemImage" src="https://squiggle.com.au{{team['logo']}}" alt="Card image cap"> </a>
+      </div>
+    </div>
+  </div>
+</div>

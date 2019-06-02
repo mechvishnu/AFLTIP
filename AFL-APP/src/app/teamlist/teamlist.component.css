@@ -1,53 +1,63 @@
+.home-team .container
+{
+  max-width: 70%;
+  display: block;
+  margin: 0px auto;
+  margin-bottom: 2em;
+}
+.home-team
+{
+  width: 100%;
+  margin: 2em 0em;
+}
+.item>a>img
+{
+  transition: 0.5s;
+    max-width: 100%;
+    min-width: 100%;
+    vertical-align: middle;
+}
+.item>a>img:hover
+{
+  transition: 0.5s;
+  transform: scale(1.2);
 
-body{
-    margin: 0px;
+}
+.item>a
+{
+  vertical-align: middle;
+}
+.item
+{
+  padding: 0.5em;
+  min-width: 9% !important;
+  vertical-align: middle;
+  margin-right: 1em;
 }
 
-/* container to manage all the teams  */
-.container{
-    width :auto;
-    /* margin-left: 40px; */
-    margin-top:40px; 
-     /* background-color: #ddd;  */
-    display: grid;
-    grid-template-columns: repeat(6,1fr);
-    grid-template-rows: repeat(3,1fr);
-    grid-row-gap: 10px; 
-    /* justify-content: center; */
-  }
 
-  /* image and text are added as one single item */
-  .item{
-    display:block;
-    padding: 0px;
-    text-align: center; 
-    align-content: center;
-    margin:0px;
-    /* border-style:solid; */
 
-  
-  }
-  .itemImage{
-      padding:15px;
-      /* justify-content: right; */
-      /* border-style:solid; */
-  }
-  .textItem{
-    display : block;
-    /* border-style:solid; */
-    font-size : 20px;
-    font-family: "Times New Roman", Times, serif;
-  
-  }
-  @media screen and (max-width:770px)
-  {
-    .container{
-      grid-template-columns: repeat(3,1fr);
-      grid-template-rows: repeat(6,1fr);
+@media screen and (max-width: 900px) and (min-width: 600px) {
 
-    }
-  }
-  img{
-    width : auto;
-    height: 100px;
-  }
+.item
+{
+  min-width: 15% !important;
+}
+
+}/* meadia */
+
+@media screen and (max-width: 599px){
+
+.item
+{
+  max-width: 26% !important;
+  float:left;
+}
+.item>a>img
+{
+    max-width: 100%;
+    min-width: 100%;
+    vertical-align: middle;
+}
+
+}/* meadia */

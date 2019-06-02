@@ -13,13 +13,19 @@ import { LadderComponent } from './ladder/ladder.component';
 import { WinningPredictionComponent } from './winning-prediction/winning-prediction.component';
 import { GeoLocationComponent } from './geo-location/geo-location.component';
 import { AgmCoreModule } from '@agm/core';
+import { NewsComponent } from './news/news.component';
+import { HomeComponent } from './home/home.component';
+import { FooterComponent } from './footer/footer.component';
+import { AngularFontAwesomeModule } from 'angular-font-awesome';
+import { HeroComponent } from './hero/hero.component';
+
 
 
 const appRoutes :Routes = [
-  {path:'' , component: TeamlistComponent},
+  {path:'' , component: HomeComponent},
   {path:'teams/:id/:name' , component:TeamComponent},
-  {path:'ladder',component:LadderComponent}
-]
+  {path:'ladder',component:LadderComponent},
+  {path:'teams',component:TeamsComponent}]
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,11 +35,16 @@ const appRoutes :Routes = [
     TeamComponent,
     LadderComponent,
     WinningPredictionComponent,
-    GeoLocationComponent
+    GeoLocationComponent,
+    NewsComponent,
+    HomeComponent,
+    FooterComponent,
+    HeroComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    AngularFontAwesomeModule,
     HttpClientModule,
     RouterModule.forRoot(appRoutes),
     AgmCoreModule.forRoot({
