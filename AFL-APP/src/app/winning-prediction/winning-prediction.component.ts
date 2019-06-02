@@ -1,8 +1,12 @@
 import { Component, OnInit } from '@angular/core';
+import {ActivatedRoute} from '@angular/router';
 import { GamedataService } from 'src/app/gamedata.service';
 import { map, filter, scan } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
 import { TipsDataService } from 'src/app/tips-data.service';
+import { GamedataService } from 'src/app/gamedata.service';
+import { TeamdataService } from 'src/app/teamdata.service';
+import { TeamsComponent } from '../teams.component';
 
 
 @Component({
@@ -20,15 +24,29 @@ export class WinningPredictionComponent implements OnInit {
   count : number = 0;
   conf : number = 0;
   value: any;
+  teamsM :any = [];
+  teamName :string;
+  hconf :any = [];
 
   setFavTeam(val){
     this.fav = val;
     this.ngOnInit();
   }
 
-  constructor(private gameService : GamedataService, private tipsService : TipsDataService, private http : HttpClient) { }
+  constructor(private route :ActivatedRoute,private gameService : GamedataService, private tipsService : TipsDataService, private http : HttpClient, private teamServiceM:TeamdataService )
+  {
+
+  }
 
   ngOnInit() {
+
+    this.teamServiceM.getTeam().subscribe(response => {
+      for (var i=0 ; i < response['teams'].length ; i++)
+      {
+        this.teamsM[i] = response['teams'][i];
+      }
+    })
+
     this.gameService.getgames().subscribe( response =>
       {
         var filterCount : number = 0;
@@ -44,7 +62,7 @@ export class WinningPredictionComponent implements OnInit {
             filterCount++;
           }
         }
-        
+
         this.tipsService.gettips().subscribe(
           response =>
           {
@@ -57,7 +75,8 @@ export class WinningPredictionComponent implements OnInit {
                 if (this.tips[i].date === this.futureGameDate[j])
                 {
                   //console.log(this.tips[i].confidence)
-
+                  this.hconf[i] = this.tips[i].hconfidence;
+                  console.log(this.hconf[i]+"asdasd");
                   this.conf += parseFloat(this.tips[i].hconfidence);
                   this.count++;
 
@@ -65,15 +84,42 @@ export class WinningPredictionComponent implements OnInit {
               }
             }
 
-
             this.value = ((this.conf/(this.count+1)).toFixed( 2 ));
             console.log(this.value);
           }
         )
       })
+
+
     }
 
     // getProbability() {
     //   this.value = ((this.conf/(this.count+1)).toFixed( 2 ) );
     // }
+    selectTeam(deviceValue)
+    {
+      this.teamName = deviceValue;
+      this.fav = deviceValue;
+      this.ngOnInit();
+      //this.router.navigate(['../../win']);
+    }
+    getLogo(tn:String)
+    {
+      if (tn =="Western Bulldogs")
+      {
+        return 'https://squiggle.com.au/wp-content/themes/squiggle/assets/images/Bulldogs.jpg';
+      }
+      if (tn == "Brisbane Lions")
+      {
+        return 'https://squiggle.com.au/wp-content/themes/squiggle/assets/images/Brisbane.jpg';
+      }
+      if (tn == "Greater Western Sydney")
+      {
+        return 'https://squiggle.com.au/wp-content/themes/squiggle/assets/images/Giants.png';
+      }
+      else
+      {
+        return 'https://squiggle.com.au/wp-content/themes/squiggle/assets/images/'+tn.split(" ").join("")+'.jpg';
+      }
+    }
   }

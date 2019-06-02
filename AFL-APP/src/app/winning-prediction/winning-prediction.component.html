@@ -1,13 +1,128 @@
-<!-- <p>
-  winning-prediction works!
-</p> -->
-<div class="button">
-  <input type="text" #inputTeam value="Set favorite team"/>
-  <button (click)="setFavTeam(inputTeam.value)">Set Favorite Team</button>
+<div class="filter-row">
+<!-- <button class ="{{buttonColor}}" (click) ="upcomingMatch()">{{buttonName}}</button> -->
+<select class="select-filter" (change)="selectTeam($event.target.value)" >
+    <option >Please Choose Home Team</option>
+    <option value="{{team['name']}}" *ngFor="let team of teamsM">{{team['name']}}</option>
+  </select>
 </div>
 
-<div class="button" id = "change">
-<!-- <button (click)={{value}}>Get the winning probability</button>
-</div> -->
+  <div class="" style="background: #e5e5e5">
+    <div class="row match-list">
+      <div class="col-lg-6" >
 
-<!-- (click)="" -->
+        <!-- completed matches -->
+        <div *ngIf="completed">
+          <h2>Average confidence for Winning: {{value}}%</h2>
+          <div class="" *ngFor = "let game of games">
+            <div class="row-match" *ngIf ="(game['ateam']) ==  teamName && game['ascore'] !='0'">
+              <p class="winner text-center">Round: {{game['round']}} </p>
+              <p class="winner text-center">{{game['date'] | date}}</p>
+              <div class="left">
+                <img src="{{getLogo(game['ateam'])}}" class="home-team-logo">
+                <p class="text-center">{{game['ateam']}}</p>
+              </div>
+              <div class="lscore">
+                <h1 class="text-center">{{game['hconfidence']}}</h1>
+              </div>
+              <div class="vs-grid">
+                <h4 class="vs text-center">-a</h4>
+              </div>
+              <div class="rscore">
+                <h1 class="text-center"></h1>
+              </div>
+              <div class="right">
+                <img src="{{getLogo(game['hteam'])}}" class="away-team-logo">
+                <p class="text-center">{{game['hteam']}}</p>
+              </div>
+              <p class="winner text-center">Winner: {{game['winner']}} </p>
+              <p class="winner text-center">{{game['venue']}}</p>
+            </div>
+
+
+            <div class="row-match" *ngIf ="(game['hteam']) ==  teamName && game['ascore'] !='0'">
+              <p class="winner text-center">bRound: {{game['round']}} </p>
+              <p class="winner text-center">{{game['date'] | date}}</p>
+              <div class="left">
+                <img src="{{getLogo(game['hteam'])}}" class="home-team-logo">
+                <p class="text-center">{{game['hteam']}}</p>
+              </div>
+              <div class="lscore">
+                <h1 class="text-center">{{game['hscore']}}</h1>
+              </div>
+              <div class="vs-grid">
+                <h4 class="vs text-center">-</h4>
+              </div>
+              <div class="rscore">
+                <h1 class="text-center">{{game['ascore']}}</h1>
+              </div>
+              <div class="right">
+                <img src="{{getLogo(game['ateam'])}}" class="away-team-logo">
+                <p class="text-center">{{game['ateam']}}</p>
+              </div>
+              <p class="winner text-center">Winner: {{game['winner']}} </p>
+              <p class="winner text-center">{{game['venue']}}</p>
+
+            </div>
+          </div> <!--ng for -->
+        </div>
+        <!-- <P>{{hconf}} </p> -->
+        <div *ngIf="!completed">
+          <h2>Average confidence for Winning: {{value}}%</h2>
+          <div class="" *ngFor = "let game of games; let tipp of tips ">
+            <div class="row-match" *ngIf ="(game['ateam']) ==  teamName && game['ascore'] =='0'">
+              <p class="winner text-center">cRound: {{game['round']}} </p>
+              <p class="winner text-center">{{game['date'] | date}}</p>
+              <div class="left">
+                <img src="{{getLogo(game['ateam'])}}" class="home-team-logo">
+                <p class="text-center">{{game['ateam']}}</p>
+              </div>
+              <div class="lscore">
+                <h1 class="text-center">{{tipp['hconfidence']}}0</h1>
+              </div>
+              <div class="vs-grid">
+                <h4 class="vs text-center">-</h4>
+              </div>
+              <div class="rscore">
+                <h1 class="text-center">{{game['hscore']}}</h1>
+              </div>
+              <div class="right">
+                <img src="{{getLogo(game['hteam'])}}" class="away-team-logo">
+                <p class="text-center">{{game['hteam']}}</p>
+              </div>
+              <p class="winner text-center">Winner: {{game['winner']}} </p>
+              <p class="winner text-center">{{game['venue']}}</p>
+            </div>
+
+
+            <div class="row-match" *ngIf ="(game['hteam']) ==  teamName && game['ascore'] =='0'">
+              <p class="winner text-center">dRound: {{game['round']}} </p>
+              <p class="winner text-center">{{game['date'] | date}}</p>
+              <div class="left">
+                <img src="{{getLogo(game['hteam'])}}" class="home-team-logo">
+                <p class="text-center">{{game['hteam']}}</p>
+              </div>
+              <div class="lscore">
+                <h1 class="text-center">{{tipp['hconfidence']}}0</h1>
+              </div>
+              <div class="vs-grid">
+                <h4 class="vs text-center">-</h4>
+              </div>
+              <div class="rscore">
+                <h1 class="text-center">{{game['ascore']}}</h1>
+              </div>
+              <div class="right">
+                <img src="{{getLogo(game['ateam'])}}" class="away-team-logo">
+                <p class="text-center">{{game['ateam']}}</p>
+              </div>
+              <p class="winner text-center">Winner: {{game['winner']}} </p>
+              <p class="winner text-center">{{game['venue']}}</p>
+            </div>
+          </div> <!--ng for -->
+        </div>
+
+      </div>
+      <div class="col-lg-6">
+        <app-ladder></app-ladder>
+      </div>
+    </div>
+  </div>

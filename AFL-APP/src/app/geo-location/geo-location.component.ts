@@ -16,6 +16,8 @@ export class GeoLocationComponent implements OnInit {
   public zoom: number;
   private map;
   public res;
+  geoarr :any = [];
+
 
   constructor(private getlocationService : GetLocationService) { }
 
@@ -25,9 +27,10 @@ export class GeoLocationComponent implements OnInit {
         this.latitude = position.coords.latitude;
         this.longitude = position.coords.longitude;
         this.zoom = 15;
+
       });
     }
-    
+
 
     //call the service
 
@@ -43,7 +46,13 @@ export class GeoLocationComponent implements OnInit {
     }
     closest.sort(this.sortByDist);
     console.log('hello');
-    console.log(closest);
+    for(var i =0;i<closest.length;i++)
+    {
+
+      this.geoarr[i] = closest[i]['name'];
+      console.log(closest[i]['name']);
+    }
+    //console.log(this.geoarr[1]['name']);
   }
 
   sortByDist(a,b) {

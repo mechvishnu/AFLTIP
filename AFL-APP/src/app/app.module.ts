@@ -30,7 +30,8 @@ const appRoutes :Routes = [
   {path:'teams',component:TeamsComponent},
   {path:'win',component:WinningPredictionComponent},
   {path:'matches',component:MatchesComponent},
-  {path:'stadiums',component:GeoLocationComponent}]
+  {path:'stadiums',component:GeoLocationComponent},
+  {path:'tips',component:WinningPredictionComponent}]
 @NgModule({
   declarations: [
     AppComponent,

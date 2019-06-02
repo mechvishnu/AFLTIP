@@ -3,17 +3,14 @@
 
 
   <select class="select-filter" (change)="upcomingMatch()">
-    <option value="{{buttonName}}">Select Matches</option>
-    <option value="{{buttonName}}">Completed Macthes</option>
-    <option value="{{buttonName}}">Upcoming Macthes</option>
+    <option value="{{buttonName}}">Completed matches</option>
+    <option value="{{buttonName}}">Upcoming Matches</option>
   </select>
 
 <select class="select-filter" (change)="selectTeam($event.target.value)" >
     <option >Choose Home Team</option>
     <option value="{{team['name']}}" *ngFor="let team of teamsM" ng-selected="teamName">{{team['name']}}</option>
   </select>
-
-
 </div>
 
 <div class="" style="background: #e5e5e5">
