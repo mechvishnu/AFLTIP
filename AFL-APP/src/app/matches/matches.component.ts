@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import { GamedataService } from 'src/app/gamedata.service';
 import { TeamdataService } from 'src/app/teamdata.service';
-import { TeamsComponent } from './teams.component';
 
 
 @Component({
